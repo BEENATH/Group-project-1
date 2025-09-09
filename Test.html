@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Shop</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(270deg, #0c2a35, #1e3c72, #2a5298);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(30, 60, 114, 0.95);
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #ff9800;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      animation: fadeIn 2s ease;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #ff9800;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #ff9800;
+      width: 0;
+      animation: typing 4s steps(30, end) forwards, blink 0.8s infinite;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      background: #ff9800;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+      width: 200%;
+      height: 200%;
+      transition: transform 0.6s;
+    }
+
+    .btn:active::after {
+      transform: translate(-50%, -50%) scale(1);
+      transition: 0s;
+    }
+
+    .shop-section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 2rem;
+    }
+
+    .game-card {
+      perspective: 1000px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .game-inner {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
+
+    .game-card:hover .game-inner {
+      transform: rotateY(180deg);
+    }
+
+    .game-front, .game-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    .game-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .game-back {
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: rotateY(180deg);
+      padding: 20px;
+      color: #fff;
+      border: 2px solid #ff9800;
+    }
+
+    /* Animations */
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎮 GameZone</h1>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Welcome to GameZone</h2>
+    <p style="margin-top:2rem;">Your ultimate stop for PC, PS5 & Xbox games</p>
+    <a href="#shop" class="btn">Shop Now</a>
+  </section>
+
+  <section class="shop-section" id="shop">
+    <h2>🔥 Popular Games 🔥</h2>
+    <div class="games-grid">
+      <div class="game-card">
+        <div class="game-inner">
+          <div class="game-front">
+            <img src="https://www.google.com/imgres?q=cyberpunk%20wallpaper%20phone&imgurl=https%3A%2F%2Fwallpapercat.com%2Fw%2Ffull%2F8%2Ff%2F4%2F134478-1175x2172-mobile-hd-cyberpunk-2077-wallpaper.jpg&imgrefurl=https%3A%2F%2Fwallpapercat.com%2Fcyberpunk-2077-wallpapers&docid=CtA8MtBy4aYGNM&tbnid=2WN9NnunXYKDcM&vet=12ahUKEwiVmI2UzL-PAxW8yzgGHdpiOMYQM3oECBcQAA..i&w=1175&h=2172&hcb=2&ved=2ahUKEwiVmI2UzL-PAxW8yzgGHdpiOMYQM3oECBcQAA" alt="Cyberpunk 2077">
+          </div>
+          <div class="game-back">
+            <h3>Cyberpunk 2077</h3>
+            <p>Open-world RPG in a futuristic city.</p>
+            <p>$49.99</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-inner">
+          <div class="game-front">
+            <img src="https://via.placeholder.com/300x350?text=Elden+Ring" alt="Elden Ring">
+          </div>
+          <div class="game-back">
+            <h3>Elden Ring</h3>
+            <p>Epic fantasy RPG adventure.</p>
+            <p>$59.99</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-inner">
+          <div class="game-front">
+            <img src="https://via.placeholder.com/300x350?text=GTA+V" alt="GTA V">
+          </div>
+          <div class="game-back">
+            <h3>GTA V</h3>
+            <p>Action-packed open world crime saga.</p>
+            <p>$29.99</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-inner">
+          <div class="game-front">
+            <img src="https://via.placeholder.com/300x350?text=God+of+War" alt="God of War">
+          </div>
+          <div class="game-back">
+            <h3>God of War</h3>
+            <p>Legendary journey with Kratos.</p>
+            <p>$39.99</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
